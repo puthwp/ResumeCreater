@@ -69,11 +69,7 @@ class ResumeListViewController: UICollectionViewController {
         case ResumeList.editResumeSegue:
             let destinationVC = segue.destination as! ResumeMainViewController
             var destinationDataStore = destinationVC.router?.dataStore
-<<<<<<< HEAD
             destinationDataStore?.resumeID = self.router?.dataStore?.resumeID
-=======
-            destinationDataStore?.resumeInfo = ResumeStore()
->>>>>>> a32b61646be03a0b07987d4d9d7901012e3ab112
         default:
             ()
         }
