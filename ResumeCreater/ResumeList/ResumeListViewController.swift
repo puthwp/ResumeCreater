@@ -2,7 +2,7 @@
 //  ResumeListViewController.swift
 //  ResumeCreater
 //
-//  Created by Sitthorn Ch on 13/2/2565 BE.
+//  Created by Thinnaphat Ch on 13/2/2565 BE.
 //  Copyright (c) 2565 BE ___ORGANIZATIONNAME___. All rights reserved.
 //
 
@@ -67,7 +67,7 @@ class ResumeListViewController: UICollectionViewController {
         case ResumeList.editResumeSegue:
             let destinationVC = segue.destination as! ResumeMainViewController
             var destinationDataStore = destinationVC.router?.dataStore
-            destinationDataStore?.resumeInfo = Resume()
+            destinationDataStore?.resumeInfo = ResumeStore()
         default:
             ()
         }

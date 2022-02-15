@@ -2,7 +2,7 @@
 //  DataCollector.swift
 //  ResumeCreater
 //
-//  Created by Sitthorn Ch on 15/2/2565 BE.
+//  Created by Thinnaphat Ch on 15/2/2565 BE.
 //
 
 import Foundation
@@ -18,13 +18,13 @@ class DataCollector {
     
     convenience init(firstName: String, lastname: String?) {
         self.init()
-        let resume = Resume()
+        let resume = ResumeStore()
         resume.firstname = firstName
         resume.lastname = lastname
     }
 }
 
-extension Resume {
+extension ResumeStore {
     func update() {
         do {
             let realm = try Realm()

@@ -2,7 +2,7 @@
 //  ResumeListModels.swift
 //  ResumeCreater
 //
-//  Created by Sitthorn Ch on 13/2/2565 BE.
+//  Created by Thinnaphat Ch on 13/2/2565 BE.
 //  Copyright (c) 2565 BE ___ORGANIZATIONNAME___. All rights reserved.
 //
 
@@ -16,7 +16,7 @@ enum ResumeList {
         var name: String?
     }
     struct Response {
-        var items: [Resume]?
+        var items: [ResumeStore]?
     }
     struct ViewModel {
         var items: [item]?
@@ -25,7 +25,7 @@ enum ResumeList {
             var name: String?
             var photo: UIImage?
             
-            init(_ item: Resume) {
+            init(_ item: ResumeStore) {
                 id = item._id
                 name = (item.firstname ?? "Unknown") + " " + (item.lastname ?? "")
                 if let url = item.picture {

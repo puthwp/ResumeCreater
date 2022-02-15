@@ -2,47 +2,49 @@
 //  ResumeObject.swift
 //  ResumeCreater
 //
-//  Created by Sitthorn Ch on 14/2/2565 BE.
+//  Created by Thinnaphat Ch on 14/2/2565 BE.
 //
 
 import Foundation
 import RealmSwift
 
-class Resume: Object {
+class ResumeStore: Object {
     @Persisted(primaryKey: true) var _id: String
     @Persisted var firstname: String?
     @Persisted var lastname: String?
     @Persisted var objective: String?
     @Persisted var picture: String?
     @Persisted var email: String?
+    @Persisted var phone: String?
     @Persisted var address: String?
     @Persisted var totalYearsExperience: Int?
     @Persisted var skill: List<String>
-    @Persisted var education: List<Education>
-    @Persisted var works: List<Work>
-    @Persisted var projects: List<Project>
+    @Persisted var education: List<EducationStore>
+    @Persisted var works: List<WorkStore>
+    @Persisted var projects: List<ProjectStore>
 }
 
-class Education: Object {
+class EducationStore: Object {
     @Persisted var className: String?
     @Persisted var passingYear: String?
     @Persisted var gpa: String?
 }
 
-class Work: Object {
+class WorkStore: Object {
     @Persisted var companyName: String?
-    @Persisted var duration: Duration?
+    @Persisted var duration: DurationStore?
 }
 
-class Project: Object {
+class ProjectStore: Object {
     @Persisted var projectName: String?
     @Persisted var teamSize: String?
     @Persisted var summary: String?
     @Persisted var technology: String?
     @Persisted var role: String?
+    @Persisted var createdDate: Date = Date()
 }
 
-class Duration: Object {
+class DurationStore: Object {
     @Persisted var start: Date?
     @Persisted var end: Date?
 }

@@ -482,6 +482,7 @@
                         <outlet property="firstnameLabel" destination="QjL-Ak-WrA" id="gTz-lP-JW7"/>
                         <outlet property="lastNameLabel" destination="hV8-OU-WYn" id="I78-h9-Yuk"/>
                         <outlet property="profileImageView" destination="OA2-rc-tFg" id="DGL-6G-xne"/>
+                        <outlet property="profileWrapper" destination="SC2-Tv-we4" id="SCn-4t-RMx"/>
                         <segue destination="Cs8-6C-szA" kind="show" id="ryq-Ti-Lfm"/>
                     </connections>
                 </tableViewController>
