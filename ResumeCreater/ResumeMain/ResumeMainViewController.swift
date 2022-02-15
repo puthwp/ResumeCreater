@@ -10,6 +10,7 @@ import UIKit
 
 protocol ResumeMainDisplayLogic: AnyObject {
     func displayResumeProfile(viewModel: ResumeMain.ViewModel)
+    func displayErrorMsg(viewModel: ResumeMain.ViewModel)
 }
 
 class ResumeMainViewController: UITableViewController {
@@ -73,12 +74,12 @@ class ResumeMainViewController: UITableViewController {
         imagePicker.sourceType = .photoLibrary
         imagePicker.allowsEditing = true
         imagePicker.delegate = self
-        self.interactor?.fetchResumeProfile()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.layoutSetup()
+        self.interactor?.fetchResumeProfile()
     }
     
     func layoutSetup() {
@@ -98,23 +99,52 @@ class ResumeMainViewController: UITableViewController {
 extension ResumeMainViewController: ResumeMainDisplayLogic {
     func displayResumeProfile(viewModel: ResumeMain.ViewModel) {
         //
+        firstnameLabel.text = viewModel.firstname
+        lastNameLabel.text = viewModel.lastname
+    }
+    
+    func displayErrorMsg(viewModel: ResumeMain.ViewModel) {
+        let alertView = UIAlertController(title: "Error...", message: viewModel.errorMsg, preferredStyle: .alert)
+        self.presentingViewController?.dismiss(animated: false, completion: {
+            self.present(alertView, animated: true) {
+                
+            }
+        })
     }
 }
 
-
-extension ResumeMainViewController: UINavigationControllerDelegate {
-    
-}
-
-extension ResumeMainViewController: UIImagePickerControllerDelegate {
+extension ResumeMainViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         //
         if let image: UIImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
             self.profileImageView.image = image
+            picker.dismiss(animated: true) {
+                //
+                 image.saveToDocumentFolder()
+            }
         }
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         //
+        picker.dismiss(animated: true) {
+            //
+        }
+    }
+}
+
+extension UIImage {
+    var documentDirectory: URL? {
+        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+    }
+    func saveToDocumentFolder() -> String {
+        if let data = self.pngData() {
+            guard let pathURL = documentDirectory?.appendingPathComponent("\(UUID().uuidString).png") else {
+                return ""
+            }
+            try? data.write(to: pathURL)
+            return pathURL.absoluteString
+        }
+        return ""
     }
 }

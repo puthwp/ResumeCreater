@@ -11,6 +11,7 @@ import UIKit
 protocol ResumeListPresentationLogic {
     func presentAllResume(response: ResumeList.Response)
     func presentError(response: ResumeList.Response)
+    func presentDidSelectedItem()
     func presentNameDidSaved()
 }
 
@@ -18,13 +19,18 @@ class ResumeListPresenter: ResumeListPresentationLogic {
     weak var viewController: ResumeListDisplayLogic?
     func presentAllResume(response: ResumeList.Response) {
         var viewModel = ResumeList.ViewModel()
-//        viewModel.items = response.items.compactMap { ResumeList.ViewModel.item($0) }
+        viewModel.items = response.items?.compactMap { ResumeList.ViewModel.Item($0) }
         viewController?.displayAllResume(viewModel: viewModel)
     }
     
     func presentError(response: ResumeList.Response) {
         var viewModel = ResumeList.ViewModel()
-        viewController?.displayAllResume(viewModel: viewModel)
+        viewModel.errorMsg = response.error?.localizedDescription
+        viewController?.displayErrorMsg(viewModel: viewModel)
+    }
+    
+    func presentDidSelectedItem() {
+        viewController?.displayDidSelectedItem()
     }
     
     func presentNameDidSaved() {

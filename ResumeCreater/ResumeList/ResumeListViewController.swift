@@ -13,11 +13,12 @@ protocol ResumeListDisplayLogic: AnyObject {
     func displayAllResume(viewModel: ResumeList.ViewModel)
     func displayNameDidSaved(viewModel: ResumeList.ViewModel)
     func displayErrorMsg(viewModel: ResumeList.ViewModel)
+    func displayDidSelectedItem()
 }
 
 class ResumeListViewController: UICollectionViewController {
     
-    var resumeItems: [ResumeList.ViewModel.item]?
+    var resumeItems: [ResumeList.ViewModel.Item]?
 
     var interactor: ResumeListBusinessLogic?
     var router: (NSObjectProtocol & ResumeListRoutingLogic & ResumeListDataPassing)?
@@ -64,12 +65,11 @@ class ResumeListViewController: UICollectionViewController {
         case ResumeList.newResumeSegue:
             let destinationVC = segue.destination as! ResumeMainViewController
             var destinationDataStore = destinationVC.router?.dataStore
-            destinationDataStore?.firstname = self.router?.dataStore?.firstname
-            destinationDataStore?.lastname = self.router?.dataStore?.lastname
+            destinationDataStore?.resumeID = self.router?.dataStore?.resumeID
         case ResumeList.editResumeSegue:
             let destinationVC = segue.destination as! ResumeMainViewController
             var destinationDataStore = destinationVC.router?.dataStore
-            destinationDataStore?.resumeInfo = ResumeStore()
+            destinationDataStore?.resumeID = self.router?.dataStore?.resumeID
         default:
             ()
         }
@@ -80,6 +80,12 @@ class ResumeListViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Resume List"
+        self.interactor?.fetchAllResumes()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.collectionView.reloadData()
     }
 }
 
@@ -95,17 +101,26 @@ extension ResumeListViewController: ResumeListDisplayLogic {
     
     func displayAllResume(viewModel:ResumeList.ViewModel) {
         self.resumeItems = viewModel.items
+        self.collectionView.collectionViewLayout.invalidateLayout()
         self.collectionView.reloadData()
     }
     
     func displayNameDidSaved(viewModel: ResumeList.ViewModel) {
         self.performSegue(withIdentifier: ResumeList.newResumeSegue, sender: self)
     }
+    
+    func displayDidSelectedItem() {
+        self.performSegue(withIdentifier: ResumeList.editResumeSegue, sender: self)
+    }
 }
 
 extension ResumeListViewController{
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        router?.routeNameNewResume()
+        guard indexPath.row < resumeItems?.count ?? 0 else {
+            router?.routeNameNewResume()
+            return
+        }
+        interactor?.didSelectedItem(resumeItems?[indexPath.row])
     }
 }
 
@@ -115,13 +130,14 @@ extension ResumeListViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ResumeItemListCell.identifier, for: indexPath) as? ResumeItemListCell else {
+        guard self.resumeItems?.count == indexPath.row else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ResumeItemCollectionCell.identifier, for: indexPath) as! ResumeItemCollectionCell
+            cell.setData(resumeItems?[indexPath.row])
+            return cell
+        }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ResumeAddItemCollectionCell.identifier, for: indexPath) as? ResumeAddItemCollectionCell else {
             return UICollectionViewCell()
         }
-        cell.layer.cornerRadius = 5.0
-        cell.layer.borderColor = .init(gray: 0.8, alpha: 0.3)
-        cell.layer.borderWidth = 2.0
-        cell.backgroundView?.backgroundColor = .quaternaryLabel
         return cell
     }
 }

@@ -31,7 +31,7 @@ open class ResumeFlowLayout: UICollectionViewLayout {
             for item in 0..<collectionView.numberOfItems(inSection: section) {
                 let indexPath = IndexPath(item: item, section: section)
                 let positionX = indexPath.row % Int(Design.column) == 0 ? Design.gap : (Design.gap * 2) + itemWidth
-                let positionY = CGFloat(indexPath.row / Int(Design.column)) * (itemHeight + Design.gap)
+                let positionY = CGFloat(indexPath.row / Int(Design.column)) * (itemHeight + Design.gap) + Design.gap
                 let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
                 attributes.frame = CGRect(x: positionX, y: positionY, width: itemWidth, height: itemHeight)
                 cellAttributes[indexPath] = attributes

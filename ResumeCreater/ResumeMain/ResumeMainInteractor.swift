@@ -11,10 +11,12 @@ import RealmSwift
 
 protocol ResumeMainBusinessLogic {
     func fetchResumeProfile()
+    func saveResumeObject(request: ResumeMain.Request)
 }
 
 protocol ResumeMainDataStore {
-    var resumeInfo: ResumeStore { get set }
+    var resumeID: String? { get set }
+    var resumeInfo: ResumeStore? { get set }
     var firstname: String? { get set }
     var lastname: String? { get set }
 }
@@ -22,26 +24,56 @@ protocol ResumeMainDataStore {
 class ResumeMainInteractor: ResumeMainBusinessLogic, ResumeMainDataStore {
     var presenter: ResumeMainPresentationLogic?
     var worker: ResumeMainWorker?
-    var resumeInfo: ResumeStore
+    var resumeInfo: ResumeStore?
     var firstname: String?
     var lastname: String?
+    var resumeID: String?
     
-    init() {
-        resumeInfo = ResumeStore()
-        resumeInfo.firstname = firstname
-        resumeInfo.lastname = lastname
+    func fetchResumeProfile() {
         do {
             let realm = try Realm()
-            try realm.write {
-                realm.add(resumeInfo)
+            if let item =  realm.object(ofType: ResumeStore.self, forPrimaryKey: resumeID) {
+                resumeInfo = item
+                let response = ResumeMain.Response(resumeInfo: item)
+                self.presenter?.presentResumeProfile(response: response)
+            }else {
+                let response = ResumeMain.Response(resumeInfo: nil, error: .somethingwrong)
+                self.presenter?.presentError(response: response)
             }
-        }catch {
+            
+        } catch {
+            let response = ResumeMain.Response(resumeInfo: nil, error: .fetchedError)
+            presenter?.presentError(response: response)
             print(error)
         }
     }
     
-    func fetchResumeProfile() {
-        let response = ResumeMain.Response(resumeInfo: resumeInfo)
-        self.presenter?.presentResumeProfile(response: response)
+    func saveResumeObject(request: ResumeMain.Request) {
+        let mirror = Mirror(reflecting: request)
+        for (_,attribute) in mirror.children.enumerated() {
+            if nil != attribute.value {
+                switch attribute.label {
+                case "firstname":
+                    resumeInfo?.firstname = attribute.value as! String
+                case "lastname":
+                    resumeInfo?.lastname = attribute.value as! String
+                case "objective":
+                    resumeInfo?.objective = attribute.value as! String
+                case "picture":
+                    resumeInfo?.picture = attribute.value as! String
+                case "email":
+                    resumeInfo?.email = attribute.value as! String
+                case "phone":
+                    resumeInfo?.phone = attribute.value as! String
+                case "address":
+                    resumeInfo?.address = attribute.value as! String
+                    
+                    
+                default:
+                    ()
+                }
+            }
+        }
+        resumeInfo?.firstname = request.firstname
     }
 }

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		969EDA7227BC3A2600322FED /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969EDA7127BC3A2600322FED /* DateExtension.swift */; };
+		969EDA7427BC47D100322FED /* RSMError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969EDA7327BC47D100322FED /* RSMError.swift */; };
+		969EDA7627BC514600322FED /* ResumeItemCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969EDA7527BC514600322FED /* ResumeItemCollectionCell.swift */; };
 		96B1D15E27BA364700D90BFE /* ResumeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B1D15D27BA364700D90BFE /* ResumeObject.swift */; };
 		96B1D16027BB87CA00D90BFE /* DataCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B1D15F27BB87CA00D90BFE /* DataCollector.swift */; };
 		96B1D16227BBC75F00D90BFE /* NameDialogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B1D16127BBC75F00D90BFE /* NameDialogViewController.swift */; };
@@ -29,7 +31,7 @@
 		96F8025D27B9306C00E3A332 /* ResumeListModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F8025727B9306C00E3A332 /* ResumeListModels.swift */; };
 		96F8025E27B9306C00E3A332 /* ResumeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F8025827B9306C00E3A332 /* ResumeListViewController.swift */; };
 		96F8025F27B9306C00E3A332 /* ResumeListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F8025927B9306C00E3A332 /* ResumeListInteractor.swift */; };
-		96F8026227B9389F00E3A332 /* ResumeItemListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F8026127B9389F00E3A332 /* ResumeItemListCell.swift */; };
+		96F8026227B9389F00E3A332 /* ResumeAddItemCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F8026127B9389F00E3A332 /* ResumeAddItemCollectionCell.swift */; };
 		96F8026927B96C1300E3A332 /* ResumeMainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F8026327B96C1200E3A332 /* ResumeMainPresenter.swift */; };
 		96F8026A27B96C1300E3A332 /* ResumeMainWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F8026427B96C1200E3A332 /* ResumeMainWorker.swift */; };
 		96F8026B27B96C1300E3A332 /* ResumeMainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F8026527B96C1200E3A332 /* ResumeMainRouter.swift */; };
@@ -58,6 +60,8 @@
 
 /* Begin PBXFileReference section */
 		969EDA7127BC3A2600322FED /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		969EDA7327BC47D100322FED /* RSMError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSMError.swift; sourceTree = "<group>"; };
+		969EDA7527BC514600322FED /* ResumeItemCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeItemCollectionCell.swift; sourceTree = "<group>"; };
 		96B1D15D27BA364700D90BFE /* ResumeObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeObject.swift; sourceTree = "<group>"; };
 		96B1D15F27BB87CA00D90BFE /* DataCollector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCollector.swift; sourceTree = "<group>"; };
 		96B1D16127BBC75F00D90BFE /* NameDialogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameDialogViewController.swift; sourceTree = "<group>"; };
@@ -79,7 +83,7 @@
 		96F8025727B9306C00E3A332 /* ResumeListModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeListModels.swift; sourceTree = "<group>"; };
 		96F8025827B9306C00E3A332 /* ResumeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeListViewController.swift; sourceTree = "<group>"; };
 		96F8025927B9306C00E3A332 /* ResumeListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeListInteractor.swift; sourceTree = "<group>"; };
-		96F8026127B9389F00E3A332 /* ResumeItemListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeItemListCell.swift; sourceTree = "<group>"; };
+		96F8026127B9389F00E3A332 /* ResumeAddItemCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeAddItemCollectionCell.swift; sourceTree = "<group>"; };
 		96F8026327B96C1200E3A332 /* ResumeMainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeMainPresenter.swift; sourceTree = "<group>"; };
 		96F8026427B96C1200E3A332 /* ResumeMainWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeMainWorker.swift; sourceTree = "<group>"; };
 		96F8026527B96C1200E3A332 /* ResumeMainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeMainRouter.swift; sourceTree = "<group>"; };
@@ -149,6 +153,7 @@
 				96F8026027B9378500E3A332 /* ResumeList */,
 				96F8022127B6557500E3A332 /* Assets.xcassets */,
 				96B1D16127BBC75F00D90BFE /* NameDialogViewController.swift */,
+				969EDA7327BC47D100322FED /* RSMError.swift */,
 				96B1D15D27BA364700D90BFE /* ResumeObject.swift */,
 				969EDA7127BC3A2600322FED /* DateExtension.swift */,
 				96B1D15F27BB87CA00D90BFE /* DataCollector.swift */,
@@ -183,7 +188,8 @@
 				96F8025627B9306C00E3A332 /* ResumeListRouter.swift */,
 				96F8025727B9306C00E3A332 /* ResumeListModels.swift */,
 				96F8025827B9306C00E3A332 /* ResumeListViewController.swift */,
-				96F8026127B9389F00E3A332 /* ResumeItemListCell.swift */,
+				969EDA7527BC514600322FED /* ResumeItemCollectionCell.swift */,
+				96F8026127B9389F00E3A332 /* ResumeAddItemCollectionCell.swift */,
 				96F8025927B9306C00E3A332 /* ResumeListInteractor.swift */,
 			);
 			path = ResumeList;
@@ -363,12 +369,14 @@
 				96F8025B27B9306C00E3A332 /* ResumeListWorker.swift in Sources */,
 				96F8026E27B96C1300E3A332 /* ResumeMainInteractor.swift in Sources */,
 				96F8026927B96C1300E3A332 /* ResumeMainPresenter.swift in Sources */,
+				969EDA7427BC47D100322FED /* RSMError.swift in Sources */,
 				96F8025D27B9306C00E3A332 /* ResumeListModels.swift in Sources */,
 				96F8026B27B96C1300E3A332 /* ResumeMainRouter.swift in Sources */,
-				96F8026227B9389F00E3A332 /* ResumeItemListCell.swift in Sources */,
+				96F8026227B9389F00E3A332 /* ResumeAddItemCollectionCell.swift in Sources */,
 				96F8025E27B9306C00E3A332 /* ResumeListViewController.swift in Sources */,
 				96F8021B27B6557400E3A332 /* SceneDelegate.swift in Sources */,
 				96F8026A27B96C1300E3A332 /* ResumeMainWorker.swift in Sources */,
+				969EDA7627BC514600322FED /* ResumeItemCollectionCell.swift in Sources */,
 				96F8025C27B9306C00E3A332 /* ResumeListRouter.swift in Sources */,
 				96B1D16027BB87CA00D90BFE /* DataCollector.swift in Sources */,
 				96F8025F27B9306C00E3A332 /* ResumeListInteractor.swift in Sources */,

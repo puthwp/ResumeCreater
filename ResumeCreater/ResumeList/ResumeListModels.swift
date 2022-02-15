@@ -16,19 +16,24 @@ enum ResumeList {
         var name: String?
     }
     struct Response {
+        var error: RSMError?
         var items: [ResumeStore]?
     }
     struct ViewModel {
         var errorMsg: String?
-        var items: [item]?
-        struct item {
+        var items: [Item]?
+        struct Item {
             var id: String?
-            var name: String?
+            var firstname: String?
+            var lastname: String?
+            var date: String?
             var photo: UIImage?
             
             init(_ item: ResumeStore) {
                 id = item._id
-                name = (item.firstname ?? "Unknown") + " " + (item.lastname ?? "")
+                firstname = item.firstname ?? "Unknown"
+                lastname = item.lastname ?? ""
+                date = item.created.formatted()
                 if let url = item.picture {
                     photo = UIImage(contentsOfFile: url)
                 }
