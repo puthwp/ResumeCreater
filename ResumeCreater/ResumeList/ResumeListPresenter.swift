@@ -2,7 +2,7 @@
 //  ResumeListPresenter.swift
 //  ResumeCreater
 //
-//  Created by Sitthorn Ch on 13/2/2565 BE.
+//  Created by Thinnaphat Ch on 13/2/2565 BE.
 //  Copyright (c) 2565 BE ___ORGANIZATIONNAME___. All rights reserved.
 //
 
@@ -10,6 +10,7 @@ import UIKit
 
 protocol ResumeListPresentationLogic {
     func presentAllResume(response: ResumeList.Response)
+    func presentError(response: ResumeList.Response)
     func presentNameDidSaved()
 }
 
@@ -18,6 +19,11 @@ class ResumeListPresenter: ResumeListPresentationLogic {
     func presentAllResume(response: ResumeList.Response) {
         var viewModel = ResumeList.ViewModel()
 //        viewModel.items = response.items.compactMap { ResumeList.ViewModel.item($0) }
+        viewController?.displayAllResume(viewModel: viewModel)
+    }
+    
+    func presentError(response: ResumeList.Response) {
+        var viewModel = ResumeList.ViewModel()
         viewController?.displayAllResume(viewModel: viewModel)
     }
     

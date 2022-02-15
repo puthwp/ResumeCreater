@@ -2,7 +2,7 @@
 //  NameDialogViewController.swift
 //  ResumeCreater
 //
-//  Created by Sitthorn Ch on 15/2/2565 BE.
+//  Created by Thinnaphat Ch on 15/2/2565 BE.
 //
 
 import Foundation

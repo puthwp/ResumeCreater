@@ -2,7 +2,7 @@
 //  ResumeListViewController.swift
 //  ResumeCreater
 //
-//  Created by Sitthorn Ch on 13/2/2565 BE.
+//  Created by Thinnaphat Ch on 13/2/2565 BE.
 //  Copyright (c) 2565 BE ___ORGANIZATIONNAME___. All rights reserved.
 //
 
@@ -12,6 +12,7 @@ import SwiftUI
 protocol ResumeListDisplayLogic: AnyObject {
     func displayAllResume(viewModel: ResumeList.ViewModel)
     func displayNameDidSaved(viewModel: ResumeList.ViewModel)
+    func displayErrorMsg(viewModel: ResumeList.ViewModel)
 }
 
 class ResumeListViewController: UICollectionViewController {
@@ -58,6 +59,7 @@ class ResumeListViewController: UICollectionViewController {
         switch segue.identifier {
         case ResumeList.namingResumeSegue:
             let destinationVC = segue.destination as! NameDialogViewController
+            destinationVC.isModalInPresentation = true
             destinationVC.delegate = self
         case ResumeList.newResumeSegue:
             let destinationVC = segue.destination as! ResumeMainViewController
@@ -67,7 +69,7 @@ class ResumeListViewController: UICollectionViewController {
         case ResumeList.editResumeSegue:
             let destinationVC = segue.destination as! ResumeMainViewController
             var destinationDataStore = destinationVC.router?.dataStore
-            destinationDataStore?.resumeInfo = Resume()
+            destinationDataStore?.resumeInfo = ResumeStore()
         default:
             ()
         }
@@ -82,6 +84,15 @@ class ResumeListViewController: UICollectionViewController {
 }
 
 extension ResumeListViewController: ResumeListDisplayLogic {
+    func displayErrorMsg(viewModel: ResumeList.ViewModel) {
+        let alertBox = UIAlertController(title: "Error", message: viewModel.errorMsg, preferredStyle: .alert)
+        self.presentingViewController?.dismiss(animated: true, completion: {
+            self.present(alertBox, animated: true) {
+                
+            }
+        })
+    }
+    
     func displayAllResume(viewModel:ResumeList.ViewModel) {
         self.resumeItems = viewModel.items
         self.collectionView.reloadData()

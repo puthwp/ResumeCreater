@@ -2,23 +2,29 @@
 //  ResumeMainViewController.swift
 //  ResumeCreater
 //
-//  Created by Sitthorn Ch on 13/2/2565 BE.
+//  Created by Thinnaphat Ch on 13/2/2565 BE.
 //  Copyright (c) 2565 BE ___ORGANIZATIONNAME___. All rights reserved.
 //
 
 import UIKit
 
-protocol ResumeMainDisplayLogic: AnyObject {}
+protocol ResumeMainDisplayLogic: AnyObject {
+    func displayResumeProfile(viewModel: ResumeMain.ViewModel)
+}
 
 class ResumeMainViewController: UITableViewController {
     static let segueIdentifier: String = "NewResumeSegue"
     // @IBOutlet var
 
+    @IBOutlet weak var profileWrapper: UIView!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var editProfileButton: UIButton!
     @IBOutlet weak var firstnameLabel: UILabel!
     @IBOutlet weak var lastNameLabel: UILabel!
     @IBOutlet weak var editNameButton: UIButton!
+    
+    var imagePicker = UIImagePickerController()
+    
     var interactor: ResumeMainBusinessLogic?
     var router: (NSObjectProtocol & ResumeMainRoutingLogic & ResumeMainDataPassing)?
 
@@ -64,16 +70,51 @@ class ResumeMainViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.allowsEditing = true
+        imagePicker.delegate = self
+        self.interactor?.fetchResumeProfile()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.layoutSetup()
+    }
+    
+    func layoutSetup() {
+        self.profileImageView.layer.cornerRadius = self.profileImageView.bounds.width / 2
+        self.profileWrapper.layer.cornerRadius = self.profileWrapper.bounds.width / 2
+    }
+    
     @IBAction func editProfilePhoto(_ sender: UITapGestureRecognizer) {
+        self.present(imagePicker, animated: true) {
+            
+        }
     }
     @IBAction func editNameHandler(_ sender: UIButton) {
     }
 }
 
-extension ResumeMainViewController: ResumeMainDisplayLogic {}
+extension ResumeMainViewController: ResumeMainDisplayLogic {
+    func displayResumeProfile(viewModel: ResumeMain.ViewModel) {
+        //
+    }
+}
 
 
-extension ResumeMainViewController {
+extension ResumeMainViewController: UINavigationControllerDelegate {
     
+}
+
+extension ResumeMainViewController: UIImagePickerControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        //
+        if let image: UIImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            self.profileImageView.image = image
+        }
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        //
+    }
 }

@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  ResumeCreater
 //
-//  Created by Sitthorn Ch on 11/2/2565 BE.
+//  Created by Thinnaphat Ch on 11/2/2565 BE.
 //
 
 import UIKit

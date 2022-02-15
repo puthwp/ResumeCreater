@@ -2,17 +2,19 @@
 //  ResumeMainInteractor.swift
 //  ResumeCreater
 //
-//  Created by Sitthorn Ch on 13/2/2565 BE.
+//  Created by Thinnaphat Ch on 13/2/2565 BE.
 //  Copyright (c) 2565 BE ___ORGANIZATIONNAME___. All rights reserved.
 //
 
 import UIKit
 import RealmSwift
 
-protocol ResumeMainBusinessLogic {}
+protocol ResumeMainBusinessLogic {
+    func fetchResumeProfile()
+}
 
 protocol ResumeMainDataStore {
-    var resumeInfo: Resume { get set }
+    var resumeInfo: ResumeStore { get set }
     var firstname: String? { get set }
     var lastname: String? { get set }
 }
@@ -20,12 +22,12 @@ protocol ResumeMainDataStore {
 class ResumeMainInteractor: ResumeMainBusinessLogic, ResumeMainDataStore {
     var presenter: ResumeMainPresentationLogic?
     var worker: ResumeMainWorker?
-    var resumeInfo: Resume
+    var resumeInfo: ResumeStore
     var firstname: String?
     var lastname: String?
     
     init() {
-        resumeInfo = Resume()
+        resumeInfo = ResumeStore()
         resumeInfo.firstname = firstname
         resumeInfo.lastname = lastname
         do {
@@ -36,5 +38,10 @@ class ResumeMainInteractor: ResumeMainBusinessLogic, ResumeMainDataStore {
         }catch {
             print(error)
         }
+    }
+    
+    func fetchResumeProfile() {
+        let response = ResumeMain.Response(resumeInfo: resumeInfo)
+        self.presenter?.presentResumeProfile(response: response)
     }
 }

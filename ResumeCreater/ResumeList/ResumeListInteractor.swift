@@ -2,11 +2,12 @@
 //  ResumeListInteractor.swift
 //  ResumeCreater
 //
-//  Created by Sitthorn Ch on 13/2/2565 BE.
+//  Created by Thinnaphat Ch on 13/2/2565 BE.
 //  Copyright (c) 2565 BE ___ORGANIZATIONNAME___. All rights reserved.
 //
 
 import UIKit
+import RealmSwift
 
 protocol ResumeListBusinessLogic {
     func saveName(firstname: String, lastname: String)
@@ -26,8 +27,15 @@ class ResumeListInteractor: ResumeListBusinessLogic, ResumeListDataStore {
     var worker: ResumeListWorker?
     
     func fetchAllResumes() {
-        let response = ResumeList.Response()
-        presenter?.presentAllResume(response: response)
+        do {
+            let realm = try Realm()
+            let resumeItems = realm.objects(ResumeStore.self).sorted(byKeyPath: "created" , ascending: false)
+            let response = ResumeList.Response(items: resumeItems.map{ $0 })
+            presenter?.presentAllResume(response: response)
+        }catch {
+            
+            print(error)
+        }
     }
     
     func saveName(firstname: String, lastname: String) {
