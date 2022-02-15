@@ -10,7 +10,10 @@ import UIKit
 
 protocol ResumeMainDisplayLogic: AnyObject {
     func displayResumeProfile(viewModel: ResumeMain.ViewModel)
+<<<<<<< HEAD
     func displayErrorMsg(viewModel: ResumeMain.ViewModel)
+=======
+>>>>>>> a32b61646be03a0b07987d4d9d7901012e3ab112
 }
 
 class ResumeMainViewController: UITableViewController {
@@ -71,15 +74,22 @@ class ResumeMainViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+<<<<<<< HEAD
         imagePicker.sourceType = .photoLibrary
         imagePicker.allowsEditing = true
         imagePicker.delegate = self
+=======
+        self.interactor
+>>>>>>> a32b61646be03a0b07987d4d9d7901012e3ab112
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.layoutSetup()
+<<<<<<< HEAD
         self.interactor?.fetchResumeProfile()
+=======
+>>>>>>> a32b61646be03a0b07987d4d9d7901012e3ab112
     }
     
     func layoutSetup() {
@@ -99,6 +109,7 @@ class ResumeMainViewController: UITableViewController {
 extension ResumeMainViewController: ResumeMainDisplayLogic {
     func displayResumeProfile(viewModel: ResumeMain.ViewModel) {
         //
+<<<<<<< HEAD
         firstnameLabel.text = viewModel.firstname
         lastNameLabel.text = viewModel.lastname
     }
@@ -112,6 +123,11 @@ extension ResumeMainViewController: ResumeMainDisplayLogic {
         })
     }
 }
+=======
+    }
+}
+
+>>>>>>> a32b61646be03a0b07987d4d9d7901012e3ab112
 
 extension ResumeMainViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {

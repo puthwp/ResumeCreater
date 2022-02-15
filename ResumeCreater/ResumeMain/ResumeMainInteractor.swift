@@ -11,12 +11,19 @@ import RealmSwift
 
 protocol ResumeMainBusinessLogic {
     func fetchResumeProfile()
+<<<<<<< HEAD
     func saveResumeObject(request: ResumeMain.Request)
 }
 
 protocol ResumeMainDataStore {
     var resumeID: String? { get set }
     var resumeInfo: ResumeStore? { get set }
+=======
+}
+
+protocol ResumeMainDataStore {
+    var resumeInfo: ResumeStore { get set }
+>>>>>>> a32b61646be03a0b07987d4d9d7901012e3ab112
     var firstname: String? { get set }
     var lastname: String? { get set }
 }
@@ -24,12 +31,23 @@ protocol ResumeMainDataStore {
 class ResumeMainInteractor: ResumeMainBusinessLogic, ResumeMainDataStore {
     var presenter: ResumeMainPresentationLogic?
     var worker: ResumeMainWorker?
+<<<<<<< HEAD
     var resumeInfo: ResumeStore?
+=======
+    var resumeInfo: ResumeStore
+>>>>>>> a32b61646be03a0b07987d4d9d7901012e3ab112
     var firstname: String?
     var lastname: String?
     var resumeID: String?
     
+<<<<<<< HEAD
     func fetchResumeProfile() {
+=======
+    init() {
+        resumeInfo = ResumeStore()
+        resumeInfo.firstname = firstname
+        resumeInfo.lastname = lastname
+>>>>>>> a32b61646be03a0b07987d4d9d7901012e3ab112
         do {
             let realm = try Realm()
             if let item =  realm.object(ofType: ResumeStore.self, forPrimaryKey: resumeID) {
@@ -48,6 +66,7 @@ class ResumeMainInteractor: ResumeMainBusinessLogic, ResumeMainDataStore {
         }
     }
     
+<<<<<<< HEAD
     func saveResumeObject(request: ResumeMain.Request) {
         let mirror = Mirror(reflecting: request)
         for (_,attribute) in mirror.children.enumerated() {
@@ -75,5 +94,10 @@ class ResumeMainInteractor: ResumeMainBusinessLogic, ResumeMainDataStore {
             }
         }
         resumeInfo?.firstname = request.firstname
+=======
+    func fetchResumeProfile() {
+        let response = ResumeMain.Response()
+        self.presenter.presentResumeProfile(response: response)
+>>>>>>> a32b61646be03a0b07987d4d9d7901012e3ab112
     }
 }

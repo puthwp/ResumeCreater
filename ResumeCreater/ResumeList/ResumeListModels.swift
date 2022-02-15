@@ -16,7 +16,10 @@ enum ResumeList {
         var name: String?
     }
     struct Response {
+<<<<<<< HEAD
         var error: RSMError?
+=======
+>>>>>>> a32b61646be03a0b07987d4d9d7901012e3ab112
         var items: [ResumeStore]?
     }
     struct ViewModel {
