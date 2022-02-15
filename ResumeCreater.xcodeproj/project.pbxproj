@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		96B1D15E27BA364700D90BFE /* ResumeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B1D15D27BA364700D90BFE /* ResumeObject.swift */; };
+		96B1D16027BB87CA00D90BFE /* DataCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B1D15F27BB87CA00D90BFE /* DataCollector.swift */; };
+		96B1D16227BBC75F00D90BFE /* NameDialogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B1D16127BBC75F00D90BFE /* NameDialogViewController.swift */; };
 		96F8021927B6557400E3A332 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F8021827B6557400E3A332 /* AppDelegate.swift */; };
 		96F8021B27B6557400E3A332 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F8021A27B6557400E3A332 /* SceneDelegate.swift */; };
 		96F8021D27B6557400E3A332 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F8021C27B6557400E3A332 /* ViewController.swift */; };
@@ -16,6 +19,24 @@
 		96F8023027B6557500E3A332 /* ResumeCreaterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F8022F27B6557500E3A332 /* ResumeCreaterTests.swift */; };
 		96F8023A27B6557500E3A332 /* ResumeCreaterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F8023927B6557500E3A332 /* ResumeCreaterUITests.swift */; };
 		96F8023C27B6557500E3A332 /* ResumeCreaterUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F8023B27B6557500E3A332 /* ResumeCreaterUITestsLaunchTests.swift */; };
+		96F8024A27B65D0700E3A332 /* iOSWidgets in Frameworks */ = {isa = PBXBuildFile; productRef = 96F8024927B65D0700E3A332 /* iOSWidgets */; };
+		96F8024D27B65DFC00E3A332 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 96F8024C27B65DFC00E3A332 /* IQKeyboardManagerSwift */; };
+		96F8025027B65E1100E3A332 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 96F8024F27B65E1100E3A332 /* SkeletonView */; };
+		96F8025327B65F0B00E3A332 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 96F8025227B65F0B00E3A332 /* RealmSwift */; };
+		96F8025A27B9306C00E3A332 /* ResumeListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F8025427B9306C00E3A332 /* ResumeListPresenter.swift */; };
+		96F8025B27B9306C00E3A332 /* ResumeListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F8025527B9306C00E3A332 /* ResumeListWorker.swift */; };
+		96F8025C27B9306C00E3A332 /* ResumeListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F8025627B9306C00E3A332 /* ResumeListRouter.swift */; };
+		96F8025D27B9306C00E3A332 /* ResumeListModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F8025727B9306C00E3A332 /* ResumeListModels.swift */; };
+		96F8025E27B9306C00E3A332 /* ResumeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F8025827B9306C00E3A332 /* ResumeListViewController.swift */; };
+		96F8025F27B9306C00E3A332 /* ResumeListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F8025927B9306C00E3A332 /* ResumeListInteractor.swift */; };
+		96F8026227B9389F00E3A332 /* ResumeItemListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F8026127B9389F00E3A332 /* ResumeItemListCell.swift */; };
+		96F8026927B96C1300E3A332 /* ResumeMainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F8026327B96C1200E3A332 /* ResumeMainPresenter.swift */; };
+		96F8026A27B96C1300E3A332 /* ResumeMainWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F8026427B96C1200E3A332 /* ResumeMainWorker.swift */; };
+		96F8026B27B96C1300E3A332 /* ResumeMainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F8026527B96C1200E3A332 /* ResumeMainRouter.swift */; };
+		96F8026C27B96C1300E3A332 /* ResumeMainModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F8026627B96C1200E3A332 /* ResumeMainModels.swift */; };
+		96F8026D27B96C1300E3A332 /* ResumeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F8026727B96C1200E3A332 /* ResumeMainViewController.swift */; };
+		96F8026E27B96C1300E3A332 /* ResumeMainInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F8026827B96C1200E3A332 /* ResumeMainInteractor.swift */; };
+		96F8027127B96DA000E3A332 /* ResumeCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F8027027B96DA000E3A332 /* ResumeCollectionViewLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +57,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		96B1D15D27BA364700D90BFE /* ResumeObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeObject.swift; sourceTree = "<group>"; };
+		96B1D15F27BB87CA00D90BFE /* DataCollector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCollector.swift; sourceTree = "<group>"; };
+		96B1D16127BBC75F00D90BFE /* NameDialogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameDialogViewController.swift; sourceTree = "<group>"; };
 		96F8021527B6557400E3A332 /* ResumeCreater.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ResumeCreater.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96F8021827B6557400E3A332 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96F8021A27B6557400E3A332 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +73,20 @@
 		96F8023527B6557500E3A332 /* ResumeCreaterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ResumeCreaterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		96F8023927B6557500E3A332 /* ResumeCreaterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeCreaterUITests.swift; sourceTree = "<group>"; };
 		96F8023B27B6557500E3A332 /* ResumeCreaterUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeCreaterUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		96F8025427B9306C00E3A332 /* ResumeListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeListPresenter.swift; sourceTree = "<group>"; };
+		96F8025527B9306C00E3A332 /* ResumeListWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeListWorker.swift; sourceTree = "<group>"; };
+		96F8025627B9306C00E3A332 /* ResumeListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeListRouter.swift; sourceTree = "<group>"; };
+		96F8025727B9306C00E3A332 /* ResumeListModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeListModels.swift; sourceTree = "<group>"; };
+		96F8025827B9306C00E3A332 /* ResumeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeListViewController.swift; sourceTree = "<group>"; };
+		96F8025927B9306C00E3A332 /* ResumeListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeListInteractor.swift; sourceTree = "<group>"; };
+		96F8026127B9389F00E3A332 /* ResumeItemListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeItemListCell.swift; sourceTree = "<group>"; };
+		96F8026327B96C1200E3A332 /* ResumeMainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeMainPresenter.swift; sourceTree = "<group>"; };
+		96F8026427B96C1200E3A332 /* ResumeMainWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeMainWorker.swift; sourceTree = "<group>"; };
+		96F8026527B96C1200E3A332 /* ResumeMainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeMainRouter.swift; sourceTree = "<group>"; };
+		96F8026627B96C1200E3A332 /* ResumeMainModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeMainModels.swift; sourceTree = "<group>"; };
+		96F8026727B96C1200E3A332 /* ResumeMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeMainViewController.swift; sourceTree = "<group>"; };
+		96F8026827B96C1200E3A332 /* ResumeMainInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeMainInteractor.swift; sourceTree = "<group>"; };
+		96F8027027B96DA000E3A332 /* ResumeCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeCollectionViewLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +94,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96F8025327B65F0B00E3A332 /* RealmSwift in Frameworks */,
+				96F8024A27B65D0700E3A332 /* iOSWidgets in Frameworks */,
+				96F8025027B65E1100E3A332 /* SkeletonView in Frameworks */,
+				96F8024D27B65DFC00E3A332 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,7 +145,13 @@
 				96F8021A27B6557400E3A332 /* SceneDelegate.swift */,
 				96F8021C27B6557400E3A332 /* ViewController.swift */,
 				96F8021E27B6557400E3A332 /* Main.storyboard */,
+				96F8027227B96DB800E3A332 /* Layouts */,
+				96F8026F27B96C1C00E3A332 /* ResumeMain */,
+				96F8026027B9378500E3A332 /* ResumeList */,
 				96F8022127B6557500E3A332 /* Assets.xcassets */,
+				96B1D16127BBC75F00D90BFE /* NameDialogViewController.swift */,
+				96B1D15D27BA364700D90BFE /* ResumeObject.swift */,
+				96B1D15F27BB87CA00D90BFE /* DataCollector.swift */,
 				96F8022327B6557500E3A332 /* LaunchScreen.storyboard */,
 				96F8022627B6557500E3A332 /* Info.plist */,
 			);
@@ -127,6 +175,41 @@
 			path = ResumeCreaterUITests;
 			sourceTree = "<group>";
 		};
+		96F8026027B9378500E3A332 /* ResumeList */ = {
+			isa = PBXGroup;
+			children = (
+				96F8025427B9306C00E3A332 /* ResumeListPresenter.swift */,
+				96F8025527B9306C00E3A332 /* ResumeListWorker.swift */,
+				96F8025627B9306C00E3A332 /* ResumeListRouter.swift */,
+				96F8025727B9306C00E3A332 /* ResumeListModels.swift */,
+				96F8025827B9306C00E3A332 /* ResumeListViewController.swift */,
+				96F8026127B9389F00E3A332 /* ResumeItemListCell.swift */,
+				96F8025927B9306C00E3A332 /* ResumeListInteractor.swift */,
+			);
+			path = ResumeList;
+			sourceTree = "<group>";
+		};
+		96F8026F27B96C1C00E3A332 /* ResumeMain */ = {
+			isa = PBXGroup;
+			children = (
+				96F8026327B96C1200E3A332 /* ResumeMainPresenter.swift */,
+				96F8026427B96C1200E3A332 /* ResumeMainWorker.swift */,
+				96F8026527B96C1200E3A332 /* ResumeMainRouter.swift */,
+				96F8026627B96C1200E3A332 /* ResumeMainModels.swift */,
+				96F8026727B96C1200E3A332 /* ResumeMainViewController.swift */,
+				96F8026827B96C1200E3A332 /* ResumeMainInteractor.swift */,
+			);
+			path = ResumeMain;
+			sourceTree = "<group>";
+		};
+		96F8027227B96DB800E3A332 /* Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				96F8027027B96DA000E3A332 /* ResumeCollectionViewLayout.swift */,
+			);
+			path = Layouts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +226,12 @@
 			dependencies = (
 			);
 			name = ResumeCreater;
+			packageProductDependencies = (
+				96F8024927B65D0700E3A332 /* iOSWidgets */,
+				96F8024C27B65DFC00E3A332 /* IQKeyboardManagerSwift */,
+				96F8024F27B65E1100E3A332 /* SkeletonView */,
+				96F8025227B65F0B00E3A332 /* RealmSwift */,
+			);
 			productName = ResumeCreater;
 			productReference = 96F8021527B6557400E3A332 /* ResumeCreater.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +304,12 @@
 				Base,
 			);
 			mainGroup = 96F8020C27B6557400E3A332;
+			packageReferences = (
+				96F8024827B65D0700E3A332 /* XCRemoteSwiftPackageReference "iOSWidgets" */,
+				96F8024B27B65DFC00E3A332 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				96F8024E27B65E1100E3A332 /* XCRemoteSwiftPackageReference "SkeletonView" */,
+				96F8025127B65F0B00E3A332 /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = 96F8021627B6557400E3A332 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -259,8 +354,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				96F8021D27B6557400E3A332 /* ViewController.swift in Sources */,
+				96B1D16227BBC75F00D90BFE /* NameDialogViewController.swift in Sources */,
+				96F8025A27B9306C00E3A332 /* ResumeListPresenter.swift in Sources */,
 				96F8021927B6557400E3A332 /* AppDelegate.swift in Sources */,
+				96B1D15E27BA364700D90BFE /* ResumeObject.swift in Sources */,
+				96F8026D27B96C1300E3A332 /* ResumeMainViewController.swift in Sources */,
+				96F8026C27B96C1300E3A332 /* ResumeMainModels.swift in Sources */,
+				96F8025B27B9306C00E3A332 /* ResumeListWorker.swift in Sources */,
+				96F8026E27B96C1300E3A332 /* ResumeMainInteractor.swift in Sources */,
+				96F8026927B96C1300E3A332 /* ResumeMainPresenter.swift in Sources */,
+				96F8025D27B9306C00E3A332 /* ResumeListModels.swift in Sources */,
+				96F8026B27B96C1300E3A332 /* ResumeMainRouter.swift in Sources */,
+				96F8026227B9389F00E3A332 /* ResumeItemListCell.swift in Sources */,
+				96F8025E27B9306C00E3A332 /* ResumeListViewController.swift in Sources */,
 				96F8021B27B6557400E3A332 /* SceneDelegate.swift in Sources */,
+				96F8026A27B96C1300E3A332 /* ResumeMainWorker.swift in Sources */,
+				96F8025C27B9306C00E3A332 /* ResumeListRouter.swift in Sources */,
+				96B1D16027BB87CA00D90BFE /* DataCollector.swift in Sources */,
+				96F8025F27B9306C00E3A332 /* ResumeListInteractor.swift in Sources */,
+				96F8027127B96DA000E3A332 /* ResumeCollectionViewLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -604,6 +716,64 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		96F8024827B65D0700E3A332 /* XCRemoteSwiftPackageReference "iOSWidgets" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/thinnaphat-ch/iOSWidgets";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.9;
+			};
+		};
+		96F8024B27B65DFC00E3A332 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.5.0;
+			};
+		};
+		96F8024E27B65E1100E3A332 /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.7.0;
+			};
+		};
+		96F8025127B65F0B00E3A332 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		96F8024927B65D0700E3A332 /* iOSWidgets */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 96F8024827B65D0700E3A332 /* XCRemoteSwiftPackageReference "iOSWidgets" */;
+			productName = iOSWidgets;
+		};
+		96F8024C27B65DFC00E3A332 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 96F8024B27B65DFC00E3A332 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
+		96F8024F27B65E1100E3A332 /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 96F8024E27B65E1100E3A332 /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
+		};
+		96F8025227B65F0B00E3A332 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 96F8025127B65F0B00E3A332 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 96F8020D27B6557400E3A332 /* Project object */;
 }
