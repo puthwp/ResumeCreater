@@ -7,7 +7,11 @@
 
 import Foundation
 import UIKit
-class ResumeMainDataAddCell: UITableViewCell{
+protocol DataCell {
+    static var identifier: String { get }
+}
+
+class ResumeMainDataAddCell:UITableViewCell, DataCell{
     static let identifier: String = "ResumeMainDataAddCellID"
     @IBOutlet weak var title: UIButton!
 }

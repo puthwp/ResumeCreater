@@ -100,6 +100,8 @@ extension ResumeMainViewController: ResumeMainDisplayLogic {
         firstnameLabel.text = viewModel.firstname
         lastNameLabel.text = viewModel.lastname
         profileImageView.image = viewModel.profileImage
+        displayItems = viewModel.displayItems
+        self.tableView.reloadData()
     }
     
     func displayMsg(viewModel: ResumeMain.ViewModel) {
@@ -118,12 +120,8 @@ extension ResumeMainViewController{
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0:
-            return ResumeMain.display[section].count
-        default:
-            return (displayItems?[section].count ?? 0) + 1
-        }
+        
+        return (displayItems?[section].count ?? 0)
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -140,9 +138,10 @@ extension ResumeMainViewController{
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let display = displayItems?[indexPath.section][indexPath.row]
         switch indexPath.section {
         case 0:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: ResumeMainDataCell.identifier, for: indexPath) as? ResumeMainDataCell else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: display?.cellIdentifier ?? "", for: indexPath) as? display.className else {
                 return UITableViewCell()
             }
             cell.viewModel = displayItems?[indexPath.section][indexPath.row]

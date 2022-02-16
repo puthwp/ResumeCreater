@@ -8,9 +8,13 @@
 import Foundation
 import UIKit
 
-class ResumeMainDataCell: UITableViewCell {
+class ResumeMainDataCell: UITableViewCell, DataCell {
     static let identifier = "ResumeMainDataCellID"
-    var viewModel: ResumeMain.ViewModel.DisplayModel?
+    var viewModel: ResumeMain.ViewModel.DisplayModel? {
+        didSet {
+            self.setViewModel(viewModel)
+        }
+    }
     var editButtonClosure: () = {}()
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
