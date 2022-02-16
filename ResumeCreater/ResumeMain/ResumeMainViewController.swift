@@ -10,12 +10,13 @@ import UIKit
 
 protocol ResumeMainDisplayLogic: AnyObject {
     func displayResumeProfile(viewModel: ResumeMain.ViewModel)
-    func displayErrorMsg(viewModel: ResumeMain.ViewModel)
+    func displayMsg(viewModel: ResumeMain.ViewModel)
 }
 
 class ResumeMainViewController: UITableViewController {
     static let segueIdentifier: String = "NewResumeSegue"
     // @IBOutlet var
+    var displayItems: [[ResumeMain.ViewModel.DisplayModel]]?
 
     @IBOutlet weak var profileWrapper: UIView!
     @IBOutlet weak var profileImageView: UIImageView!
@@ -88,9 +89,7 @@ class ResumeMainViewController: UITableViewController {
     }
     
     @IBAction func editProfilePhoto(_ sender: UITapGestureRecognizer) {
-        self.present(imagePicker, animated: true) {
-            
-        }
+        self.present(imagePicker, animated: true),nil)
     }
     @IBAction func editNameHandler(_ sender: UIButton) {
     }
@@ -102,13 +101,60 @@ extension ResumeMainViewController: ResumeMainDisplayLogic {
         lastNameLabel.text = viewModel.lastname
     }
     
-    func displayErrorMsg(viewModel: ResumeMain.ViewModel) {
-        let alertView = UIAlertController(title: "Error...", message: viewModel.errorMsg, preferredStyle: .alert)
+    func displayMsg(viewModel: ResumeMain.ViewModel) {
+        let alertView = UIAlertController(title: "Error...", message: viewModel.msg, preferredStyle: .alert)
         self.presentingViewController?.dismiss(animated: false, completion: {
             self.present(alertView, animated: true) {
                 
             }
         })
+    }
+}
+
+extension ResumeMainViewController{
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return ResumeMain.display.count
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch section {
+        case 0:
+            return ResumeMain.display[section].count
+        default:
+            return (displayItems?[section].count ?? 0) + 1
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 1:
+            return "Education"
+        case 2:
+            return "Work"
+        case 3:
+            return "Projects"
+        default:
+            return nil
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch indexPath.section {
+        case 0:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: ResumeMainDataCell.identifier, for: indexPath) as? ResumeMainDataCell else {
+                return UITableViewCell()
+            }
+            return cell
+        default:
+            if indexPath.row == displayItems?.count ?? 0 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: ResumeMainDataAddCell.identifier, for: indexPath) as! ResumeMainDataAddCell
+                return cell
+            }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: ResumeMainDataCell.identifier, for: indexPath) as? ResumeMainDataCell else {
+                return UITableViewCell()
+            }
+            return cell
+        }
     }
 }
 
@@ -119,7 +165,10 @@ extension ResumeMainViewController: UINavigationControllerDelegate, UIImagePicke
             self.profileImageView.image = image
             picker.dismiss(animated: true) {
                 //
-                 image.saveToDocumentFolder()
+                 let url = image.saveToDocumentFolder()
+                var request = ResumeMain.Request()
+                request.profileImage = url
+                self.interactor?.saveResumeObject(request: request)
             }
         }
     }

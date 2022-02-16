@@ -23,33 +23,33 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "729EFFB6-1D5D-4D5E-B7B0-A3142A1966FC"
+            uuid = "388E099B-4310-4F73-BEA3-A9C9E3C0A694"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ResumeCreater/ResumeMain/ResumeMainViewController.swift"
+            filePath = "ResumeCreater/ResumeMain/ResumeMainWorker.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
-            landmarkName = "editProfilePhoto(_:)"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "saveResumeObject(_:request:completeBlock:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "0E8ABBC0-3B76-42CD-B5A2-9AE289E0AE2B"
+            uuid = "3CA162D1-16E7-4732-8351-7D02790B7339"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ResumeCreater/ResumeMain/ResumeMainInteractor.swift"
+            filePath = "ResumeCreater/ResumeMain/ResumeMainWorker.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
-            landmarkName = "ResumeMainInteractor"
-            landmarkType = "3">
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "saveResumeObject(_:request:completeBlock:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

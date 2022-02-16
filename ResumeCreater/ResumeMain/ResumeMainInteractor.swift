@@ -50,32 +50,16 @@ class ResumeMainInteractor: ResumeMainBusinessLogic, ResumeMainDataStore {
     }
     
     func saveResumeObject(request: ResumeMain.Request) {
-        let mirror = Mirror(reflecting: request)
-        for (_,attribute) in mirror.children.enumerated() {
-            if nil != attribute.value {
-                switch attribute.label {
-                case "firstname":
-                    resumeInfo?.firstname = attribute.value as! String
-                case "lastname":
-                    resumeInfo?.lastname = attribute.value as! String
-                case "objective":
-                    resumeInfo?.objective = attribute.value as! String
-                case "picture":
-                    resumeInfo?.picture = attribute.value as! String
-                case "email":
-                    resumeInfo?.email = attribute.value as! String
-                case "phone":
-                    resumeInfo?.phone = attribute.value as! String
-                case "address":
-                    resumeInfo?.address = attribute.value as! String
-                    
-                    
-                default:
-                    ()
-                }
+        let worker = ResumeMainWorker()
+        worker.saveResumeObject(resumeID!, request: request) { [weak self] error in
+            if error != nil {
+                let response = ResumeMain.Response(resumeInfo: nil, error: error)
+                self?.presenter?.presentError(response: response)
+            }else {
+                var response = ResumeMain.Response(resumeInfo: nil)
+                self?.presenter?.presentSuccess(response: response)
             }
         }
-        resumeInfo?.firstname = request.firstname
 
     }
 }

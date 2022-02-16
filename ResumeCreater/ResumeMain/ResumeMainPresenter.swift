@@ -11,6 +11,7 @@ import UIKit
 protocol ResumeMainPresentationLogic {
     func presentResumeProfile(response: ResumeMain.Response)
     func presentError(response: ResumeMain.Response)
+    func presentSuccess(response: ResumeMain.Response)
 }
 
 class ResumeMainPresenter: ResumeMainPresentationLogic {
@@ -22,6 +23,11 @@ class ResumeMainPresenter: ResumeMainPresentationLogic {
     
     func presentError(response: ResumeMain.Response) {
         let viewModel = ResumeMain.ViewModel(response.error?.localizedDescription ?? "Unknow")
-        viewController?.displayErrorMsg(viewModel: viewModel)
+        viewController?.displayMsg(viewModel: viewModel)
+    }
+    
+    func presentSuccess(response: ResumeMain.Response) {
+        let viewModel = ResumeMain.ViewModel()
+        viewController?.displayMsg(viewModel: viewModel)
     }
 }

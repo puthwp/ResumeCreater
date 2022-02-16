@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum ResumeMain: String {
+enum ResumeDataType {
     case firstname
     case lastname
     case objective
@@ -21,8 +21,29 @@ enum ResumeMain: String {
     case education
     case works
     case projects
-    
-    
+}
+
+enum ResumeMain {
+    static let display: [[ResumeDataType]] = [
+        [
+            .objective,
+            .email,
+            .phone,
+            .address,
+            .totalYearsExperience,
+            .skill
+            
+        ],
+        [
+            .education
+        ],
+        [
+            .works
+        ],
+        [
+            .projects
+        ]
+    ]
     struct Request {
         var profileImage: String?
         var firstname: String?
@@ -40,9 +61,11 @@ enum ResumeMain: String {
     struct Response {
         let resumeInfo: ResumeStore?
         var error: RSMError?
+        var msg: String?
     }
     
     struct ViewModel {
+        var displayItems: [[ResumeMain.ViewModel.DisplayModel]]?
         var profileImage: UIImage?
         var firstname: String?
         var lastname: String?
@@ -54,7 +77,9 @@ enum ResumeMain: String {
         var works: [ResumeMain.ViewModel.WorkViewModel]?
         var education: [ResumeMain.ViewModel.EducationViewModel]?
         var projects: [ResumeMain.ViewModel.ProjectViewModel]?
-        var errorMsg: String?
+        var msg: String?
+        
+        
         
         init(_ profile: ResumeStore) {
             profileImage = UIImage(contentsOfFile: profile.picture ?? "")
@@ -70,8 +95,19 @@ enum ResumeMain: String {
             projects = profile.projects.sorted { $0.createdDate > $1.createdDate }.compactMap { .init($0) }
         }
         
-        init(_ error: String) {
-            errorMsg = error
+        init(_ msg: String) {
+            self.msg = msg
+        }
+        
+        init() {
+            
+        }
+        
+        struct DisplayModel {
+            var type: ResumeDataType
+            var title: String?
+            var description: String?
+            var cellIdentifier: String = ResumeMainDataCell.identifier
         }
         
         struct WorkViewModel {
