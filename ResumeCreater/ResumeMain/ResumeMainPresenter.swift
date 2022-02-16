@@ -10,13 +10,20 @@ import UIKit
 
 protocol ResumeMainPresentationLogic {
     func presentResumeProfile(response: ResumeMain.Response)
+    func presentStoredImage(response: ResumeMain.Response)
     func presentError(response: ResumeMain.Response)
     func presentSuccess(response: ResumeMain.Response)
+    
 }
 
 class ResumeMainPresenter: ResumeMainPresentationLogic {
     weak var viewController: ResumeMainDisplayLogic?
     func presentResumeProfile(response: ResumeMain.Response) {
+        let viewModel = ResumeMain.ViewModel(.init(value: response.resumeInfo!))
+        viewController?.displayResumeProfile(viewModel: viewModel)
+    }
+    
+    func presentStoredImage(response: ResumeMain.Response) {
         let viewModel = ResumeMain.ViewModel(.init(value: response.resumeInfo!))
         viewController?.displayResumeProfile(viewModel: viewModel)
     }

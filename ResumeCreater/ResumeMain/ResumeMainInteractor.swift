@@ -12,6 +12,7 @@ import RealmSwift
 protocol ResumeMainBusinessLogic {
     func fetchResumeProfile()
     func saveResumeObject(request: ResumeMain.Request)
+    func storeImage(request: ResumeMain.Request)
 }
 
 protocol ResumeMainDataStore {
@@ -61,5 +62,16 @@ class ResumeMainInteractor: ResumeMainBusinessLogic, ResumeMainDataStore {
             }
         }
 
+    }
+    
+    func storeImage(request: ResumeMain.Request) {
+        let url = request.image?.saveToDocumentFolder()
+        var profile = ResumeMain.Request.Profile()
+        profile.profileImage = url
+        var request = ResumeMain.Request()
+        request.profileEdited = profile
+        saveResumeObject(request: request)
+        var response = ResumeMain.Response(resumeInfo: resumeInfo)
+        presenter?.presentStoredImage(response: response)
     }
 }

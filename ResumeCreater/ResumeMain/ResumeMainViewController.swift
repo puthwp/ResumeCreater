@@ -165,40 +165,15 @@ extension ResumeMainViewController: UINavigationControllerDelegate, UIImagePicke
         //
         if let image: UIImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
             self.profileImageView.image = image
-            picker.dismiss(animated: true) {
-                //
-                 let url = image.saveToDocumentFolder()
-                var request = ResumeMain.Request()
-                request.profileImage = url
-                self.interactor?.saveResumeObject(request: request)
-            }
+            var request = ResumeMain.Request()
+            request.image = image
+            interactor?.storeImage(request: request)
+            picker.dismiss(animated: true,completion: nil)
         }
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         //
-        picker.dismiss(animated: true) {
-            //
-        }
-    }
-}
-
-extension UIImage {
-    func saveToDocumentFolder() -> String {
-        if let data = self.pngData() {
-            let fileName = "\(UUID().uuidString).png"
-            guard let pathURL = FileManager.documentPath?.appendingPathComponent(fileName) else {
-                return ""
-            }
-            try? data.write(to: pathURL)
-            return fileName
-        }
-        return ""
-    }
-}
-
-extension FileManager {
-    static var documentPath: URL? {
-        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+        picker.dismiss(animated: true,completion: nil)
     }
 }

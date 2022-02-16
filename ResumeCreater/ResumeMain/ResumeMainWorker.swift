@@ -11,7 +11,7 @@ import RealmSwift
 
 class ResumeMainWorker {
     func saveResumeObject(_ id: String, request: ResumeMain.Request, completeBlock: @escaping (RSMError?) -> Void) {
-        let mirror = Mirror(reflecting: request)
+        let mirror = Mirror(reflecting: request.profileEdited)
         
         do {
             let realm = try Realm()

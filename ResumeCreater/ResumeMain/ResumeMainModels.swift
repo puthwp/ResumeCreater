@@ -44,17 +44,21 @@ enum ResumeMain {
         ]
     ]
     struct Request {
-        var profileImage: String?
-        var firstname: String?
-        var lastname: String?
-        var objective: String?
-        var phone: String?
-        var email: String?
-        var address: String?
-        var skills: [String]?
-        var works: [ResumeMain.ViewModel.WorkViewModel]?
-        var education: [ResumeMain.ViewModel.EducationViewModel]?
-        var projects: [ResumeMain.ViewModel.ProjectViewModel]?
+        var image: UIImage?
+        var profileEdited: Profile?
+        struct Profile {
+            var profileImage: String?
+            var firstname: String?
+            var lastname: String?
+            var objective: String?
+            var phone: String?
+            var email: String?
+            var address: String?
+            var skills: [String]?
+            var works: [ResumeMain.ViewModel.WorkViewModel]?
+            var education: [ResumeMain.ViewModel.EducationViewModel]?
+            var projects: [ResumeMain.ViewModel.ProjectViewModel]?            
+        }
     }
     
     struct Response {
