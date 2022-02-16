@@ -89,7 +89,7 @@ class ResumeMainViewController: UITableViewController {
     }
     
     @IBAction func editProfilePhoto(_ sender: UITapGestureRecognizer) {
-        self.present(imagePicker, animated: true),nil)
+        self.present(imagePicker, animated: true,completion: nil)
     }
     @IBAction func editNameHandler(_ sender: UIButton) {
     }

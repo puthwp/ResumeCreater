@@ -51,9 +51,15 @@ class ResumeListInteractor: ResumeListBusinessLogic, ResumeListDataStore {
         self.firstname = firstname
         self.lastname = lastname
         let worker = ResumeListWorker()
-        if let error = worker.saveToDatabase(firstname: firstname, lastname: lastname) {
-            let response = ResumeList.Response(error: error)
-            presenter?.presentError(response: response)
+        if let result = worker.saveToDatabase(firstname: firstname, lastname: lastname) {
+            switch result {
+            case .success(let token):
+                self.resumeID = token
+                presenter?.presentNameDidSaved()
+            case .failure(let error):
+                let response = ResumeList.Response(error: error)
+                presenter?.presentError(response: response)                
+            }
         }else {
             presenter?.presentNameDidSaved()            
         }

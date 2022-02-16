@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 
 class ResumeListWorker {
-    func saveToDatabase(firstname: String?, lastname: String?) -> RSMError? {
+    func saveToDatabase(firstname: String?, lastname: String?) -> Result<String, RSMError>? {
         do {
             let realm = try Realm()
             let resume = ResumeStore()
@@ -19,10 +19,10 @@ class ResumeListWorker {
             try realm.write {
                 realm.add(resume)
             }
-            return nil
+            return .success(resume._id)
         } catch {
             print(error)
-            return .savedError
+            return .failure(.savedError)
         }
     }
 }
