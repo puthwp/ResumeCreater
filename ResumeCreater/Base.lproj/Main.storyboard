@@ -284,16 +284,16 @@
             </objects>
             <point key="canvasLocation" x="688.40579710144937" y="38.839285714285715"/>
         </scene>
-        <!--View Controller-->
+        <!--Edit-->
         <scene sceneID="yS2-28-Vpy">
             <objects>
                 <viewController id="Cs8-6C-szA" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Bhg-I0-9Lz">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Xio-OB-uBx">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Ss-46-f9p" customClass="PrimaryTextField" customModule="iOSWidgets">
                                         <rect key="frame" x="20" y="8" width="374" height="34"/>
@@ -341,14 +341,24 @@
                                         </userDefinedRuntimeAttributes>
                                     </textView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hee-W1-MUS">
-                                        <rect key="frame" x="20" y="252" width="374" height="473"/>
+                                        <rect key="frame" x="20" y="252" width="374" height="507"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zLh-Zx-mBM" customClass="PrimaryBigButton" customModule="iOSWidgets">
-                                        <rect key="frame" x="20" y="735" width="374" height="31"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Submit"/>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="mgK-Sg-qRu">
+                                        <rect key="frame" x="20" y="769" width="374" height="31"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zLh-Zx-mBM" customClass="SecondaryLargeButton" customModule="iOSWidgets">
+                                                <rect key="frame" x="0.0" y="0.0" width="103.5" height="31"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Cancel"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="emW-Qm-ZNA" customClass="PrimaryLargeButton" customModule="iOSWidgets">
+                                                <rect key="frame" x="113.5" y="0.0" width="260.5" height="31"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Save"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="20" bottom="8" trailing="20"/>
                             </stackView>
@@ -357,12 +367,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="uZA-tJ-LGb" firstAttribute="bottom" secondItem="Xio-OB-uBx" secondAttribute="bottom" id="DCX-QU-qjX"/>
+                            <constraint firstItem="zLh-Zx-mBM" firstAttribute="width" secondItem="Bhg-I0-9Lz" secondAttribute="width" multiplier="0.25" id="Ng0-9w-ZTO"/>
                             <constraint firstItem="Xio-OB-uBx" firstAttribute="leading" secondItem="uZA-tJ-LGb" secondAttribute="leading" id="ZlC-By-mU2"/>
                             <constraint firstItem="Xio-OB-uBx" firstAttribute="top" secondItem="uZA-tJ-LGb" secondAttribute="top" id="g9W-YZ-FC5"/>
                             <constraint firstAttribute="trailing" secondItem="Xio-OB-uBx" secondAttribute="trailing" id="tvi-p2-Ijr"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Lzh-Nd-jGt"/>
+                    <navigationItem key="navigationItem" title="Edit" id="Lzh-Nd-jGt"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cmv-Hp-fIP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -388,7 +399,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="tintColor" systemColor="secondarySystemFillColor"/>
-                                            <imageReference key="image" image="person.badge.plus" catalog="system" symbolScale="default" renderingMode="template"/>
+                                            <imageReference key="image" image="person" catalog="system" symbolScale="default" renderingMode="template"/>
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e5S-m0-2CY">
                                             <rect key="frame" x="0.0" y="148" width="179" height="31"/>
@@ -502,28 +513,27 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="75"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hEv-cv-5ec">
-                                                    <rect key="frame" x="20" y="10" width="374" height="30.5"/>
+                                                    <rect key="frame" x="20" y="10" width="374" height="24"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uzI-ML-qCS">
-                                                            <rect key="frame" x="20" y="5" width="35" height="20.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="35" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="detail" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="acL-YI-a4W">
-                                                            <rect key="frame" x="65" y="5" width="289" height="20.5"/>
+                                                            <rect key="frame" x="45" y="0.0" width="329" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <edgeInsets key="layoutMargins" top="5" left="20" bottom="5" right="20"/>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="JNu-Lp-lHe">
-                                                    <rect key="frame" x="20" y="40.5" width="374" height="24.5"/>
+                                                    <rect key="frame" x="20" y="34" width="374" height="31"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yeB-aw-FaF">
-                                                            <rect key="frame" x="303" y="0.0" width="71" height="24.5"/>
+                                                            <rect key="frame" x="303" y="0.0" width="71" height="31"/>
                                                             <color key="backgroundColor" systemColor="secondaryLabelColor"/>
                                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <state key="normal" title="Button"/>
@@ -534,6 +544,7 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                             <connections>
+                                                                <action selector="didTapEditProfileWithSender:" destination="ly9-1A-FPl" eventType="touchUpInside" id="X6n-FH-qCj"/>
                                                                 <action selector="editNameHandler:" destination="D1J-UG-E17" eventType="touchUpInside" id="koP-fV-XAE"/>
                                                             </connections>
                                                         </button>
@@ -550,6 +561,11 @@
                                         <constraint firstItem="ljN-Bz-iZB" firstAttribute="leading" secondItem="GTN-u2-g7o" secondAttribute="leading" id="j9c-Xs-Su3"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="detailLabel" destination="acL-YI-a4W" id="pPq-fj-Ik3"/>
+                                    <outlet property="editButton" destination="yeB-aw-FaF" id="LMK-Dx-KTv"/>
+                                    <outlet property="titleLabel" destination="uzI-ML-qCS" id="YPo-Zd-eWQ"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ResumeMainDataAddCellID" rowHeight="36" id="RcX-QN-t4m" customClass="ResumeMainDataAddCell" customModule="ResumeCreater" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="593.5" width="414" height="36"/>
@@ -571,6 +587,7 @@
                                                     <buttonConfiguration key="configuration" style="plain" title="ADD"/>
                                                 </button>
                                             </subviews>
+                                            <color key="tintColor" systemColor="systemGrayColor"/>
                                             <edgeInsets key="layoutMargins" top="10" left="20" bottom="10" right="20"/>
                                         </stackView>
                                     </subviews>
@@ -581,6 +598,9 @@
                                         <constraint firstAttribute="bottom" secondItem="5lI-Np-Jvq" secondAttribute="bottom" id="z9H-Qf-PwS"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="title" destination="3Sk-IK-3oV" id="G5E-4N-C2L"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -596,7 +616,7 @@
                         <outlet property="lastNameLabel" destination="hV8-OU-WYn" id="I78-h9-Yuk"/>
                         <outlet property="profileImageView" destination="OA2-rc-tFg" id="DGL-6G-xne"/>
                         <outlet property="profileWrapper" destination="SC2-Tv-we4" id="SCn-4t-RMx"/>
-                        <segue destination="Cs8-6C-szA" kind="show" id="ryq-Ti-Lfm"/>
+                        <segue destination="Cs8-6C-szA" kind="presentation" identifier="EditResumeSegue" id="ryq-Ti-Lfm"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sgf-um-0ew" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -656,7 +676,7 @@
             <size key="intrinsicContentSize" width="62.5" height="34"/>
         </designable>
         <designable name="zLh-Zx-mBM">
-            <size key="intrinsicContentSize" width="70" height="31"/>
+            <size key="intrinsicContentSize" width="68.5" height="31"/>
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
@@ -664,7 +684,6 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="person" catalog="system" width="128" height="117"/>
-        <image name="person.badge.plus" catalog="system" width="128" height="124"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="plus.bubble" catalog="system" width="128" height="110"/>
         <image name="square.and.pencil" catalog="system" width="128" height="115"/>
@@ -691,6 +710,9 @@
         </systemColor>
         <systemColor name="systemGray4Color">
             <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

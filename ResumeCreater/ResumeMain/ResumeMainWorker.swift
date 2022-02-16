@@ -38,7 +38,6 @@ class ResumeMainWorker {
                             ()
                         }
                     }
-                    print("@@@\(attribute.label) \(attribute.value)")
                 }
                 completeBlock(nil)
             }

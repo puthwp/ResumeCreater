@@ -99,10 +99,11 @@ extension ResumeMainViewController: ResumeMainDisplayLogic {
     func displayResumeProfile(viewModel: ResumeMain.ViewModel) {
         firstnameLabel.text = viewModel.firstname
         lastNameLabel.text = viewModel.lastname
+        profileImageView.image = viewModel.profileImage
     }
     
     func displayMsg(viewModel: ResumeMain.ViewModel) {
-        let alertView = UIAlertController(title: "Error...", message: viewModel.msg, preferredStyle: .alert)
+        let alertView = UIAlertController(title: "Messege", message: viewModel.msg, preferredStyle: .alert)
         self.presentingViewController?.dismiss(animated: false, completion: {
             self.present(alertView, animated: true) {
                 
@@ -144,6 +145,7 @@ extension ResumeMainViewController{
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ResumeMainDataCell.identifier, for: indexPath) as? ResumeMainDataCell else {
                 return UITableViewCell()
             }
+            cell.viewModel = displayItems?[indexPath.section][indexPath.row]
             return cell
         default:
             if indexPath.row == displayItems?.count ?? 0 {
@@ -182,17 +184,21 @@ extension ResumeMainViewController: UINavigationControllerDelegate, UIImagePicke
 }
 
 extension UIImage {
-    var documentDirectory: URL? {
-        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
-    }
     func saveToDocumentFolder() -> String {
         if let data = self.pngData() {
-            guard let pathURL = documentDirectory?.appendingPathComponent("\(UUID().uuidString).png") else {
+            let fileName = "\(UUID().uuidString).png"
+            guard let pathURL = FileManager.documentPath?.appendingPathComponent(fileName) else {
                 return ""
             }
             try? data.write(to: pathURL)
-            return pathURL.absoluteString
+            return fileName
         }
         return ""
+    }
+}
+
+extension FileManager {
+    static var documentPath: URL? {
+        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
     }
 }

@@ -32,7 +32,6 @@ enum ResumeMain {
             .address,
             .totalYearsExperience,
             .skill
-            
         ],
         [
             .education
@@ -82,7 +81,15 @@ enum ResumeMain {
         
         
         init(_ profile: ResumeStore) {
-            profileImage = UIImage(contentsOfFile: profile.picture ?? "")
+            if let url = FileManager.documentPath?.appendingPathComponent(profile.picture ?? "") as? URL {
+                do {
+                    let imageData = try Data(contentsOf: url)
+                    let image = UIImage(data: imageData)
+                    profileImage = image
+                } catch {
+                    print(error)
+                }
+            }
             firstname = profile.firstname
             lastname = profile.lastname
             objective = profile.objective

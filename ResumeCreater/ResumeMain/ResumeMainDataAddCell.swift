@@ -9,4 +9,5 @@ import Foundation
 import UIKit
 class ResumeMainDataAddCell: UITableViewCell{
     static let identifier: String = "ResumeMainDataAddCellID"
+    @IBOutlet weak var title: UIButton!
 }
